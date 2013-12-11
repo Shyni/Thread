@@ -1,0 +1,31 @@
+package Thread;
+
+public class DiscountCalculator extends Thread{
+	
+	int itemId;
+	
+	public DiscountCalculator(int id) {
+		itemId=id;
+	}
+	
+	@Override
+	public void run() {
+		
+		switch (itemId) {
+		case 101:
+			Tester1.setDiscount(10);
+			break;
+		case 102:
+			Tester1.setDiscount(13);
+			break;
+		case 103:
+			Tester1.setDiscount(19);
+		case 104:
+			Tester1.setDiscount(34);
+			break;
+		default:
+			Tester1.setDiscount(0);
+			break;
+		}		
+	}
+}
