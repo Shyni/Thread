@@ -1,0 +1,35 @@
+package Thread;
+
+public class PriceCalculator extends Thread{
+	
+	int itemId;
+	
+	public PriceCalculator(int id)
+	{
+		itemId=id;
+	}
+	
+	@Override
+	public void run() {
+		
+		System.out.println("HELLo");
+		switch(itemId)
+		{
+		case 101:
+			Tester1.setPrice(430);
+			break;
+		case 102:
+			Tester1.setPrice(520);
+			break;
+		case 103:
+			Tester1.setPrice(760);
+			break;
+		case 104:
+			Tester1.setPrice(1024);
+			break;
+		default:
+			Tester1.setPrice(0);			
+			
+		}		
+	}
+}
