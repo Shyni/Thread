@@ -1,0 +1,27 @@
+package Thread;
+
+public class Tester1 {	
+	static double price;
+	static double discount;
+	
+	public static void main(String[] args) throws InterruptedException {		
+		PriceCalculator p=new PriceCalculator(103);		
+		DiscountCalculator d=new DiscountCalculator(103);		
+		p.start();
+		d.start();		
+		System.out.println("WAITING FOR PRICE & DISCOUNT....."+Thread.currentThread().getName());		
+		p.join();
+		d.join();		
+		System.out.println("TOTAL BILL IS "+(price-discount));		
+	}
+	
+	public static void setDiscount(double discount) {
+            System.out.println("discount "+discount+" "+Thread.currentThread().getName());	
+		Tester1.discount = discount;
+	}
+	
+	public static void setPrice(double price) {
+            System.out.println("price "+price+" "+Thread.currentThread().getName());	
+		Tester1.price = price;
+	}
+}
